@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotels</title>
+</head>
+<body>
+    <h1>Hotels</h1>
+    <a href="{{ url_for('add_hotel') }}">Add Hotel</a>
+    <hr>
+    {% for hotel in hotels %}
+        <div>
+            <img src="{{ url_for('get_image', image_id=hotel.image_id) }}" width="150"><br>
+            {{ hotel.name }} - {{ hotel.location }} - Rs.{{ hotel.price }}<br>
+            <a href="{{ url_for('book', hotel_id=hotel._id) }}">Book</a>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>
